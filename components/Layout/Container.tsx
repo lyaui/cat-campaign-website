@@ -2,10 +2,12 @@ import { type ReactNode } from 'react';
 
 interface ContainerProps {
   children: ReactNode;
+  className?: string;
 }
 
-function Container({ children }: ContainerProps) {
-  return <div className='container'>{children}</div>;
+function Container({ children, className = '' }: ContainerProps) {
+  const classes = `container mx-auto ${className}`;
+  return <div className={classes}>{children}</div>;
 }
 
 export default Container;
