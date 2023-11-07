@@ -7,16 +7,22 @@ import logoDark from '@/public/assets/logos/logo_dark.svg';
 import Button from '@/components/UI/Button';
 import Container from '@/components/Layout/Container';
 
-function Header() {
+const NAV_ITEMS = [
+  ROUTERS.STANCE,
+  ROUTERS.CAMPAIGN,
+  ROUTERS.POLICY,
+  ROUTERS.SERVICE_MAIL,
+];
+
+// TODO constrain type ROUTERS
+interface NavItem {
+  name: string;
+  hash: string;
+}
+
+function NavItem({ name, hash }: NavItem) {
   const router = useRouter();
   const { asPath } = router;
-
-  const navItems = [
-    ROUTERS.STANCE,
-    ROUTERS.CAMPAIGN,
-    ROUTERS.POLICY,
-    ROUTERS.SERVICE_MAIL,
-  ];
 
   const isActiveStyle = (hash: string) => {
     const baseClasses = 'font-bold py-2';
@@ -25,6 +31,17 @@ function Header() {
       ? baseClasses + ' ' + activeClasses
       : baseClasses;
   };
+  return (
+    <li key={hash} className={isActiveStyle(hash)}>
+      <Link href={`/${hash ? '#' + hash : hash}`} scroll={false}>
+        {name}
+      </Link>
+    </li>
+  );
+}
+
+function Header() {
+  const router = useRouter();
 
   function handleDonateClick() {
     router.push({ pathname: `/`, hash: ROUTERS.DONATE.hash });
@@ -39,15 +56,12 @@ function Header() {
 
         <nav>
           <ul className='flex items-center gap-x-12'>
-            {navItems.map((_route) => (
-              <li key={_route.hash} className={isActiveStyle(_route.hash)}>
-                <Link
-                  href={`/${_route.hash ? '#' + _route.hash : _route.hash}`}
-                  scroll={false}
-                >
-                  {_route.name}
-                </Link>
-              </li>
+            {NAV_ITEMS.map((_route) => (
+              <NavItem
+                key={_route.hash}
+                name={_route.name}
+                hash={_route.hash}
+              />
             ))}
             <li>
               <Button onClick={handleDonateClick}>小額捐款</Button>
