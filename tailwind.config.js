@@ -9,8 +9,14 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'Noto+Sans+TC': ['Noto+Sans+TC', 'sans-serif'],
+      },
+    },
     colors: {
+      white: '#FFFFFF',
+      black: '#000000',
       primary: '#4527A0',
       secondary: '#26A69A',
       warning: '#FFB300',
