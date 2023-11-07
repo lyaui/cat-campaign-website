@@ -48,7 +48,7 @@ function Header() {
   }
 
   return (
-    <header className='sticky top-0 h-[100px] bg-white flex-center border-t-[5px] border-primary'>
+    <header className='sticky z-50 top-0 h-[100px] bg-white flex-center border-t-[5px] border-primary'>
       <Container className='flex items-center justify-between'>
         <Link href={`/`}>
           <Image src={logoDark} alt='喵立翰' width={235} height={59} />
