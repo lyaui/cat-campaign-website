@@ -17,7 +17,7 @@ const campaigns = [
   },
   {
     date: '2023-12-26',
-    title: '帶著你的貓耳，來和我一起走！',
+    title: '戴著你的貓耳，來和我一起走！',
     desc: '街上氣氛真的很棒，從小孩到大人，甚至有些狗狗朋友都帶著貓耳來找我握手，真的太可愛了！這次的活動不僅讓我看到大家的熱情，更加堅定了我推進「貓咪友善環境」政策的決心。',
     img: campaignImg2,
   },
@@ -48,11 +48,11 @@ function Campaign() {
           <div className='col-span-5 row-span-2'>
             <CampaignCard {...campaigns[0]} />
           </div>
-          <div className='bg-secondary col-span-7 row-span-1'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum,
+          <div className='col-span-7 row-span-1'>
+            <CampaignCard direction='row' {...campaigns[1]} />
           </div>
-          <div className='bg-warning col-span-7 row-span-1'>
-            Lorem, ipsum dolor sit amet consectetur
+          <div className='col-span-7 row-span-1'>
+            <CampaignCard direction='row' {...campaigns[2]} />
           </div>
         </div>
       </Container>
