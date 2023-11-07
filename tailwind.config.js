@@ -17,7 +17,11 @@ module.exports = {
     colors: {
       white: '#FFFFFF',
       black: '#000000',
+      'primary-100': '#e8e8ff',
+      'primary-200': '#ccccff',
+      'primary-300': '#3e2390',
       primary: '#4527A0',
+      'primary-600': '#351e7b',
       secondary: '#26A69A',
       warning: '#FFB300',
       error: '#EC407A',
