@@ -16,6 +16,11 @@ interface DonateFormProps {
   onClick: () => void;
 }
 
+interface PostDonateForm {
+  id: planId;
+  amount: number;
+}
+
 const plans: Plan[] = [
   { id: 1, name: '喵星人之友', amount: 600, sponsors: 9957 },
   { id: 2, name: '喵星大使', amount: 6000, sponsors: 2000 },
@@ -24,13 +29,22 @@ const plans: Plan[] = [
 
 function DonateForm({ onClick }: DonateFormProps) {
   const [] = useState();
-  const [selectedPlanId, setSelectedPlanId] = useState<planId>(1);
+  const [selectedPlanId, setSelectedPlanId] = useState<planId>(2);
 
   const handlePlanClick = (id: planId) => () => {
     setSelectedPlanId(id);
   };
 
   const handleFormSubmit = () => {
+    const selectedPlan = plans.find((_plan) => _plan.id === selectedPlanId);
+    if (!selectedPlan) return;
+
+    const postData: PostDonateForm = {
+      id: selectedPlan.id,
+      amount: selectedPlan.amount,
+    };
+
+    alert(JSON.stringify(postData));
     onClick();
   };
 
