@@ -114,8 +114,8 @@ function DonateForm({ onClick }: DonateFormProps) {
             type='number'
             // onChange={handleInputChange}
             onBlur={handleInputBlur}
-            inputRef={inputRef}
-            error={hasError}
+            // inputRef={inputRef}
+            // error={hasError}
           />
         </div>
       </PlanCardWrapper>
