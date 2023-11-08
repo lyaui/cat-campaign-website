@@ -51,6 +51,9 @@ p {
   .column-center {
     @apply flex flex-col items-center justify-center;
   }
+  .heading-1 {
+    @apply text-title-dark font-bold text-[44px] leading-normal;
+  }
   .heading-4 {
     @apply text-title-dark font-bold text-2xl leading-normal;
   }
