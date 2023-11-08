@@ -26,7 +26,7 @@ function ContactUs() {
               </p>
             </div>
           </div>
-          <div className='col-span-5'>
+          <div className='col-span-5 pr-[100px]'>
             <ContactForm />
           </div>
         </div>
