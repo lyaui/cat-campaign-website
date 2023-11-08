@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import Jumbotron from '@/components/Home';
 import About from '@/components/About';
 import Campaign from '@/components/Campaign';
 import Policy from '@/components/Policy';
@@ -11,6 +12,7 @@ import ContactUs from '@/components/ContactUs';
 const Home: NextPage = () => {
   return (
     <div className='text-[72px]'>
+      <Jumbotron />
       <About />
       <Campaign />
       <Policy />

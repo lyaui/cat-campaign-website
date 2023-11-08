@@ -1,4 +1,5 @@
 export const ROUTERS = {
+  HOME: { name: '首頁', hash: '' },
   ABOUT: { name: '候選人主張', hash: 'about' },
   CAMPAIGN: { name: '最新活動', hash: 'campaign' },
   POLICY: { name: '政策議題', hash: 'policy' },
