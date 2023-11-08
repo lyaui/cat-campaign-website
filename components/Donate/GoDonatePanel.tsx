@@ -39,7 +39,7 @@ function GoDonatePanel({ onClick }: GoDonatePanelProps) {
           <CountUp end={accumulatedAmount} />
         </h3>
       </div>
-      <Button size='large' onClick={onClick}>
+      <Button size='large' className='mt-auto' onClick={onClick}>
         前往捐款
       </Button>
     </>

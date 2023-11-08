@@ -34,7 +34,7 @@ function Donate() {
         data-aos='fade-up'
       >
         <Container>
-          <div className='max-w-[679px] p-8 gap-5 rounded-[80px] column-center bg-white'>
+          <div className='shadow-[0_0_4px_0_rgba(0, 0, 0, .1)] max-w-[679px] h-[437px] p-8 gap-5 rounded-[80px] column-center bg-white '>
             {currentRender === DONATE_PANEL.GO_DONATE && (
               <GoDonatePanel onClick={handleGoDonateForm} />
             )}
