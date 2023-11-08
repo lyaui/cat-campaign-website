@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { ROUTERS } from '@/constants/index';
 import logoLight from '@/public/assets/logos/logo_light.svg';
 import catImg from '@/public/assets/images/cat.png';
 import Container from '@/components/Layout/Container';
+import { handleSectionScroll } from '@/utils/index';
 
 const NAV_LEFT_ITEMS = [ROUTERS.HOME, ROUTERS.CAMPAIGN, ROUTERS.CONTACT_US];
 const NAV_RIGHT_ITEMS = [ROUTERS.ABOUT, ROUTERS.POLICY, ROUTERS.DONATE];
@@ -32,7 +32,7 @@ function Footer() {
           <Image src={catImg} alt='' width={530} height={267} />
         </div>
         <div className='flex items-center mb-5'>
-          <Link href={`/`}>
+          <Link href={`/`} onClick={handleSectionScroll}>
             <Image src={logoLight} alt='喵立翰' width={235} height={59} />
           </Link>
           <div className='flex ml-auto gap-[60px]'>
@@ -45,7 +45,7 @@ function Footer() {
                     <li key={name} className='text-center mb-2.5'>
                       <Link
                         href={`/${hash ? '#' + hash : hash}`}
-                        scroll={false}
+                        onClick={handleSectionScroll}
                       >
                         {name}
                       </Link>
@@ -57,7 +57,7 @@ function Footer() {
                     <li key={name} className='text-center mb-2.5'>
                       <Link
                         href={`/${hash ? '#' + hash : hash}`}
-                        scroll={false}
+                        onClick={handleSectionScroll}
                       >
                         {name}
                       </Link>

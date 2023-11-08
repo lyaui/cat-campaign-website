@@ -6,6 +6,7 @@ import { ROUTERS } from '@/constants/index';
 import logoDark from '@/public/assets/logos/logo_dark.svg';
 import Button from '@/components/UI/Button';
 import Container from '@/components/Layout/Container';
+import { handleSectionScroll } from '@/utils/index';
 
 const NAV_ITEMS = [
   ROUTERS.ABOUT,
@@ -33,7 +34,7 @@ function NavItem({ name, hash }: NavItem) {
   };
   return (
     <li key={hash} className={isActiveStyle(hash)}>
-      <Link href={`/${hash ? '#' + hash : hash}`} scroll={false}>
+      <Link href={`/${hash ? '#' + hash : hash}`} onClick={handleSectionScroll}>
         {name}
       </Link>
     </li>
@@ -50,7 +51,7 @@ function Header() {
   return (
     <header className='sticky z-50 top-0 h-[100px] bg-white flex-center border-t-[5px] border-primary shadow-[0_0_4px_rgba(0,0,0,0.15)]'>
       <Container className='flex items-center justify-between'>
-        <Link href={`/`}>
+        <Link href={`/`} onClick={handleSectionScroll}>
           <Image src={logoDark} alt='喵立翰' width={235} height={59} />
         </Link>
 
