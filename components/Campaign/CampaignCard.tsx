@@ -47,7 +47,7 @@ function CampaignCard({
           {imageComp}
         </div>
         <div className='p-4 bg-white'>
-          <Badge>{formattedDate}</Badge>
+          <Badge className='mb-2.5'>{formattedDate}</Badge>
           {contentComp}
         </div>
       </div>
