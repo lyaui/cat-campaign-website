@@ -35,7 +35,7 @@ const policies = [
 ];
 
 function Policy() {
-  const currentRouter = ROUTERS.CAMPAIGN;
+  const currentRouter = ROUTERS.POLICY;
   return (
     <section
       id={currentRouter.hash}

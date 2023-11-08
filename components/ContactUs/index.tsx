@@ -6,9 +6,13 @@ import Container from '@/components/Layout/Container';
 import ContactForm from '@/components/ContactUs/ContactForm';
 
 function ContactUs() {
-  const currentRouter = ROUTERS.CAMPAIGN;
+  const currentRouter = ROUTERS.CONTACT_US;
   return (
-    <section className='h-[520px] py-11' data-aos='fade-up'>
+    <section
+      id={currentRouter.hash}
+      className='h-[520px] py-11'
+      data-aos='fade-up'
+    >
       <Container>
         <div className='grid grid-cols-12 gap-[30px]'>
           <div className='col-span-7 px-[100px]'>
