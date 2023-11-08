@@ -16,7 +16,7 @@ function CampaignCard({
   date = '',
   title = '',
   desc = '',
-  img = '',
+  img,
 }: CampaignCardProps) {
   const dateNum = dayjs(date).format('D');
   const engMonth = dayjs(date).format('MMM') + '.';
