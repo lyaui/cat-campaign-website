@@ -6,6 +6,7 @@ interface PlanCardWrapperProps {
   isSelected: boolean;
   onClick: (id: planId) => () => void;
   children: ReactNode;
+  className?: string;
 }
 
 function PlanCardWrapper({
@@ -13,10 +14,11 @@ function PlanCardWrapper({
   children,
   isSelected = false,
   onClick,
+  className = '',
 }: PlanCardWrapperProps) {
-  const classes = `cursor-pointer w-[180px] column-center gap-2.5 p-4 border-2 ${
+  const classes = `bg-white cursor-pointer column-center gap-2.5 p-4 border-2 ${
     isSelected ? 'border-primary' : 'border-gray-300'
-  } rounded-lg hover:bg-primary-100 transition`;
+  } rounded-lg hover:bg-primary-100 transition ${className}`;
 
   return (
     <div className={classes} onClick={onClick(id)}>

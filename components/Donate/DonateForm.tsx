@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
 import Button from '@/components/UI/Button';
+import Input from '@/components/UI/Input';
 import PlanCard from '@/components/Donate/PlanCard';
+import PlanCardWrapper from '@/components/Donate/PlanCardWrapper';
 
 export type planId = 0 | 1 | 2 | 3;
 
@@ -21,6 +23,8 @@ interface PostDonateForm {
   amount: number;
 }
 
+const customPlanId = 0;
+
 const plans: Plan[] = [
   { id: 1, name: '喵星人之友', amount: 600, sponsors: 9957 },
   { id: 2, name: '喵星大使', amount: 6000, sponsors: 2000 },
@@ -30,6 +34,7 @@ const plans: Plan[] = [
 function DonateForm({ onClick }: DonateFormProps) {
   const [] = useState();
   const [selectedPlanId, setSelectedPlanId] = useState<planId>(2);
+  const [customDonateAmt, setCustomDonateAmt] = useState<number | null>(null);
 
   const handlePlanClick = (id: planId) => () => {
     setSelectedPlanId(id);
@@ -65,6 +70,14 @@ function DonateForm({ onClick }: DonateFormProps) {
           </li>
         ))}
       </ul>
+      <PlanCardWrapper
+        id={customPlanId}
+        isSelected={selectedPlanId === customPlanId}
+        onClick={handlePlanClick}
+        className='w-auto'
+      >
+        <Input />
+      </PlanCardWrapper>
       <div className='flex-center gap-5'>
         <Button variant='outlined' size='large' onClick={onClick}>
           返回
