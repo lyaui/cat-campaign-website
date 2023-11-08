@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import type { AppProps } from 'next/app';
 
 import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <main className='h-full bg-background border-x-[5px] border-primary'>
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </main>
     </ParallaxProvider>
   );
