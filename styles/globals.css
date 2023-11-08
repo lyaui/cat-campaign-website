@@ -54,4 +54,10 @@ p {
   .heading-4 {
     @apply text-title-dark font-bold text-2xl leading-normal;
   }
+  .heading-5 {
+    @apply text-title-dark font-bold text-xl leading-normal;
+  }
+  .body-small {
+    @apply text-title-dark font-normal text-[13px] leading-normal;
+  }
 }
