@@ -6,6 +6,7 @@ import About from '@/components/About';
 import Campaign from '@/components/Campaign';
 import Policy from '@/components/Policy';
 import Donate from '@/components/Donate';
+import ContactUs from '@/components/ContactUs';
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
       <Campaign />
       <Policy />
       <Donate />
+      <ContactUs />
     </div>
   );
 };
