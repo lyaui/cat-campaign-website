@@ -33,7 +33,7 @@ const campaigns = [
 function Campaign() {
   const currentRouter = ROUTERS.CAMPAIGN;
   return (
-    <section id={currentRouter.hash} className='py-11'>
+    <section id={currentRouter.hash} className='py-11' data-aos='fade-up'>
       <Container>
         <h2 className='flex-center mb-8'>
           <Image

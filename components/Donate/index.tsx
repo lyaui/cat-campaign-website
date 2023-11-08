@@ -25,23 +25,25 @@ function Donate() {
   };
 
   return (
-    <section
-      id={currentRouter.hash}
-      className='bg-no-repeat bg-cover bg-center py-11'
-      style={{
-        backgroundImage: `url(${donateBg.src})`,
-      }}
-    >
-      <Container>
-        <div className='max-w-[679px] p-8 gap-5 rounded-[80px] column-center bg-white'>
-          {currentRender === DONATE_PANEL.GO_DONATE && (
-            <GoDonatePanel onClick={handleGoDonateForm} />
-          )}
-          {currentRender === DONATE_PANEL.FORM && (
-            <DonateForm onClick={handleGoAccAmount} />
-          )}
-        </div>
-      </Container>
+    <section id={currentRouter.hash} className='bg-primary'>
+      <div
+        style={{
+          backgroundImage: `url(${donateBg.src})`,
+        }}
+        className='bg-no-repeat bg-cover bg-center py-11'
+        data-aos='fade-up'
+      >
+        <Container>
+          <div className='max-w-[679px] p-8 gap-5 rounded-[80px] column-center bg-white'>
+            {currentRender === DONATE_PANEL.GO_DONATE && (
+              <GoDonatePanel onClick={handleGoDonateForm} />
+            )}
+            {currentRender === DONATE_PANEL.FORM && (
+              <DonateForm onClick={handleGoAccAmount} />
+            )}
+          </div>
+        </Container>
+      </div>
     </section>
   );
 }
