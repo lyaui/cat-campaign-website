@@ -5,3 +5,8 @@ export const ROUTERS = {
   DONATE: { name: '小額捐款', hash: 'donate' },
   SERVICE_MAIL: { name: '民眾服務信箱', hash: 'service-main' },
 };
+
+export const DONATE_PANEL = {
+  GO_DONATE: 'GO_DONATE',
+  FORM: 'FORM',
+};
