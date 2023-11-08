@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 import '../styles/globals.css';
 import 'normalize.css/normalize.css';
@@ -21,10 +22,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     AOS.refresh();
   }, []);
   return (
-    <main className='h-full bg-background border-x-[5px] border-primary'>
-      <Header />
-      <Component {...pageProps} />
-    </main>
+    <ParallaxProvider>
+      <main className='h-full bg-background border-x-[5px] border-primary'>
+        <Header />
+        <Component {...pageProps} />
+      </main>
+    </ParallaxProvider>
   );
 }
 
