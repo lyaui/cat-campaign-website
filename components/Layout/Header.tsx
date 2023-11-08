@@ -8,7 +8,7 @@ import Button from '@/components/UI/Button';
 import Container from '@/components/Layout/Container';
 
 const NAV_ITEMS = [
-  ROUTERS.STANCE,
+  ROUTERS.ABOUT,
   ROUTERS.CAMPAIGN,
   ROUTERS.POLICY,
   ROUTERS.SERVICE_MAIL,
