@@ -1,48 +1,29 @@
-import Image from 'next/image';
-import CountUp from 'react-countup';
+import { useState } from 'react';
 
-import { ROUTERS } from '@/constants/index';
-import donateTitle from '@/public/assets/font-svg/donate.svg';
-import accAmountTitle from '@/public/assets/font-svg/accumulated-amount.svg';
-import Button from '@/components/UI/Button';
+import { ROUTERS, DONATE_PANEL } from '@/constants/index';
+import GoDonatePanel from '@/components/Donate/GoDonatePanel';
 import Container from '@/components/Layout/Container';
+import DonateForm from '@/components/Donate/DonateForm';
 import donateBg from '@/public/assets/images/donate_bg.png';
 
 const currentRouter = ROUTERS.DONATE;
 
-function GoDonatePanel() {
-  const accumulatedAmount = 987655873;
-  return (
-    <>
-      <h2 className='flex-center'>
-        <Image
-          src={donateTitle}
-          alt={currentRouter.name}
-          width={257}
-          height={72}
-          draggable={false}
-        />
-      </h2>
-      <h4 className='heading-4'>您的小筆捐款，是每隻毛孩未來的大大動力！</h4>
-      <div className='column-center font-black text-primary'>
-        <Image
-          src={accAmountTitle}
-          alt='accumulate amount'
-          width={175}
-          height={56}
-          draggable={false}
-        />
-        <h3 className='font-black'>
-          NT$
-          <CountUp end={accumulatedAmount} />
-        </h3>
-      </div>
-      <Button size='large'>前往捐款</Button>
-    </>
-  );
-}
+type DonatePanel = keyof typeof DONATE_PANEL;
 
+// TODO fix type
 function Donate() {
+  const [currentRender, setCurrentRender] = useState<DonatePanel>(
+    DONATE_PANEL.GO_DONATE as DonatePanel,
+  );
+
+  const handleGoDonateForm = () => {
+    setCurrentRender(DONATE_PANEL.FORM as DonatePanel);
+  };
+
+  const handleGoAccAmount = () => {
+    setCurrentRender(DONATE_PANEL.GO_DONATE as DonatePanel);
+  };
+
   return (
     <section
       id={currentRouter.hash}
@@ -53,7 +34,12 @@ function Donate() {
     >
       <Container>
         <div className='max-w-[679px] p-8 gap-5 rounded-[80px] column-center bg-white'>
-          <GoDonatePanel />
+          {currentRender === DONATE_PANEL.GO_DONATE && (
+            <GoDonatePanel onClick={handleGoDonateForm} />
+          )}
+          {currentRender === DONATE_PANEL.FORM && (
+            <DonateForm onClick={handleGoAccAmount} />
+          )}
         </div>
       </Container>
     </section>
