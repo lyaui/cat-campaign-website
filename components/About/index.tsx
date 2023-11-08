@@ -7,7 +7,7 @@ import Container from '@/components/Layout/Container';
 function About() {
   const currentRouter = ROUTERS.ABOUT;
   return (
-    <section id={currentRouter.hash} className='py-11' data-aos='fade-up'>
+    <section id={currentRouter.hash} className='pb-11' data-aos='fade-up'>
       <Container>
         <div className='flex justify-between gap-[64px]'>
           <Image draggable={false} src={sloganEnImg} alt='slogan en' />

@@ -12,7 +12,7 @@ import zhNameImg from '@/public/assets/font-svg/name_zh_bg.svg';
 function Home() {
   const currentRouter = ROUTERS.HOME;
   return (
-    <section id={currentRouter.hash} className='py-11' data-aos='fade-up'>
+    <section id={currentRouter.hash} className='pt-11' data-aos='fade-up'>
       <Container>
         <div className='relative w-full h-[650px]'>
           <div className='absolute top-1/2 -translate-y-1/2 flex flex-col gap-5'>
