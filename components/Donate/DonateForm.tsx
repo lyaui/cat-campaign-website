@@ -54,11 +54,11 @@ function DonateForm({ onClick }: DonateFormProps) {
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className='column-center gap-5'>
+    <form onSubmit={handleFormSubmit} className='column-center w-full gap-5'>
       <h4 className='heading-4 mb-2.5'>選擇捐款方案</h4>
-      <ul className='flex gap-2.5'>
+      <ul className='flex gap-2.5 w-full'>
         {plans.map((_plan) => (
-          <li key={_plan.id}>
+          <li key={_plan.id} className='w-full'>
             <PlanCard
               id={_plan.id}
               name={_plan.name}
@@ -76,7 +76,7 @@ function DonateForm({ onClick }: DonateFormProps) {
         onClick={handlePlanClick}
         className='w-auto'
       >
-        <Input />
+        <Input placeholder='請輸入捐款金額' />
       </PlanCardWrapper>
       <div className='flex-center gap-5'>
         <Button variant='outlined' size='large' onClick={onClick}>
