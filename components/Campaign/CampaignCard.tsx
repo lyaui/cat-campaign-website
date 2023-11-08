@@ -1,6 +1,8 @@
 import Image, { type StaticImageData } from 'next/image';
 import dayjs from 'dayjs';
 
+import Badge from '@/components/UI/Badge';
+
 interface CampaignCardProps {
   direction?: 'column' | 'row';
   date: string;
@@ -45,9 +47,7 @@ function CampaignCard({
           {imageComp}
         </div>
         <div className='p-4 bg-white'>
-          <div className='w-fit text-base px-2.5 py-1.5 mb-2.5 bg-secondary text-title-light rounded-tl-lg rounded-br-lg'>
-            {formattedDate}
-          </div>
+          <Badge>{formattedDate}</Badge>
           {contentComp}
         </div>
       </div>
