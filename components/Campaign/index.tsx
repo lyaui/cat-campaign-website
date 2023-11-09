@@ -7,6 +7,7 @@ import CampaignCard from '@/components/Campaign/CampaignCard';
 import campaignImg1 from '@/public/assets/images/campaign_1.png';
 import campaignImg2 from '@/public/assets/images/campaign_2.png';
 import campaignImg3 from '@/public/assets/images/campaign_3.png';
+import useIsDesktop from '@/hooks/useIsDesktop';
 
 const campaigns = [
   {
@@ -32,9 +33,12 @@ const campaigns = [
 // TODO SECTION TITLE COMPONENT
 function Campaign() {
   const currentRouter = ROUTERS.CAMPAIGN;
+
+  const { isDesktop, scale } = useIsDesktop();
+
   return (
     <section id={currentRouter.hash} className='py-11' data-aos='fade-up'>
-      <Container>
+      <Container className='p-0'>
         <h2 className='flex-center mb-8'>
           <Image
             src={campaignTitle}
@@ -44,14 +48,17 @@ function Campaign() {
             draggable={false}
           />
         </h2>
-        <div className='grid grid-cols-12 grid-rows-2 gap-[30px]'>
-          <div className='col-span-5 row-span-2'>
-            <CampaignCard {...campaigns[0]} />
+        <div className='flex md:grid md:grid-cols-12 md:grid-rows-2 gap-[30px]'>
+          <div className='md:col-span-5 md:row-span-2'>
+            <CampaignCard
+              direction={isDesktop ? 'column' : 'row'}
+              {...campaigns[0]}
+            />
           </div>
-          <div className='col-span-7 row-span-1'>
+          <div className='md:col-span-7 md:row-span-1'>
             <CampaignCard direction='row' {...campaigns[1]} />
           </div>
-          <div className='col-span-7 row-span-1'>
+          <div className='md:col-span-7 md:row-span-1'>
             <CampaignCard direction='row' {...campaigns[2]} />
           </div>
         </div>
