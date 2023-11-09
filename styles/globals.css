@@ -42,7 +42,7 @@ p {
 }
 
 @layer components {
-  .transition {
+  .c-transition {
     @apply transition-all duration-300;
   }
   .flex-center {

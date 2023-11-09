@@ -43,7 +43,7 @@ function CampaignCard({
   if (direction === 'row') {
     return (
       <div className='rounded-lg h-full flex overflow-hidden'>
-        <div className='relative shrink-0 w-[276px] h-auto [&>img]:hover:scale-105 [&>img]:transition'>
+        <div className='relative shrink-0 w-[276px] h-auto [&>img]:hover:scale-105 [&>img]:c-transition'>
           {imageComp}
         </div>
         <div className='p-4 bg-white'>
@@ -55,7 +55,7 @@ function CampaignCard({
   }
   return (
     <div className='rounded-lg overflow-hidden'>
-      <div className='relative w-full h-[325px] overflow-hidden [&>img]:hover:scale-105 [&>img]:transition'>
+      <div className='relative w-full h-[325px] overflow-hidden [&>img]:hover:scale-105 [&>img]:c-transition'>
         <div className='absolute z-10 right-0 w-[74px] h-[74px] bg-secondary text-title-light font-bold	column-center'>
           <span className='text-4xl'>{dateNum}</span>
           <span className='text-base'>{engMonth}</span>
