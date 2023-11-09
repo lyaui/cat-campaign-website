@@ -60,6 +60,9 @@ p {
   .heading-5 {
     @apply text-title-dark font-bold text-xl leading-normal;
   }
+  .heading-6 {
+    @apply text-title-dark font-bold text-base leading-normal;
+  }
   .body-normal {
     @apply text-title-dark font-normal text-[15px] leading-normal;
   }
