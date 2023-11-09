@@ -10,13 +10,13 @@ function PolicyCard({ title, order, policies }: PolicyCardProps) {
   return (
     <div
       className={`group flex flex-col gap-[10px] bg-white p-4 rounded-lg flex-1 overflow-hidden ${
-        order === '二' ? 'lg:translate-y-7' : ''
+        order === '二' ? 'md:translate-y-7' : ''
       }`}
     >
       <Badge
-        className={`lg:group-hover:-translate-y-10 lg:group-hover:opacity-0 c-transition`}
+        className={`md:group-hover:-translate-y-10 md:group-hover:opacity-0 c-transition`}
       >{`政策${order}`}</Badge>
-      <div className={`lg:group-hover:-translate-y-10 c-transition`}>
+      <div className={`md:group-hover:-translate-y-10 c-transition`}>
         <h4 className='heading-4 mb-2.5'>{title}</h4>
         <ol>
           {policies.map((_policy, index) => (

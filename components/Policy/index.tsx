@@ -4,6 +4,7 @@ import { ROUTERS } from '@/constants/index';
 import policyTitle from '@/public/assets/font-svg/policy.svg';
 import Container from '@/components/Layout/Container';
 import PolicyCard from '@/components/Policy/PolicyCard';
+import useIsDesktop from '@/hooks/useIsDesktop';
 
 const policies = [
   {
@@ -36,10 +37,14 @@ const policies = [
 
 function Policy() {
   const currentRouter = ROUTERS.POLICY;
+
+  const { isDesktop, scale } = useIsDesktop();
+  const policyTitleSize = { width: 257, height: 72 };
+
   return (
     <section
       id={currentRouter.hash}
-      className='bg-primary pt-11 pb-20'
+      className='bg-primary pt-11 pb-11 md:pb-20'
       data-aos='fade-up'
     >
       <Container>
@@ -47,12 +52,12 @@ function Policy() {
           <Image
             src={policyTitle}
             alt={currentRouter.name}
-            width={257}
-            height={72}
+            width={policyTitleSize.width * scale}
+            height={policyTitleSize.height * scale}
             draggable={false}
           />
         </h2>
-        <div className='flex flex-col lg:flex-row gap-8'>
+        <div className='flex flex-col md:flex-row gap-8'>
           {policies.map((_policy) => (
             <PolicyCard
               key={_policy.title}
