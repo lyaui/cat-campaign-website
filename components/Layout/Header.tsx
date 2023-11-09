@@ -56,7 +56,7 @@ function Header() {
         </Link>
 
         <nav>
-          <ul className='flex items-center gap-x-12'>
+          <ul className='flex items-center gap-x-2 lg:gap-x-12'>
             {NAV_ITEMS.map((_route) => (
               <NavItem
                 key={_route.hash}
