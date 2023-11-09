@@ -39,7 +39,7 @@ function Policy() {
   return (
     <section
       id={currentRouter.hash}
-      className='bg-primary py-11'
+      className='bg-primary pt-11 pb-20'
       data-aos='fade-up'
     >
       <Container>
@@ -52,7 +52,7 @@ function Policy() {
             draggable={false}
           />
         </h2>
-        <div className='flex gap-8'>
+        <div className='flex flex-col lg:flex-row gap-8'>
           {policies.map((_policy) => (
             <PolicyCard
               key={_policy.title}
