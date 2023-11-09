@@ -41,6 +41,17 @@ function NavItem({ name, hash }: NavItem) {
   );
 }
 
+const logoStyle = {
+  backgroundImage: `url(${logoDark.src})`,
+  backgroundRepeat: 'no-repeat',
+  width: 235,
+  height: 59,
+  display: 'block',
+  textIndent: '101%',
+  overflow: 'hidden',
+  'white-space': 'nowrap',
+};
+
 function Header() {
   const router = useRouter();
 
@@ -51,9 +62,11 @@ function Header() {
   return (
     <header className='sticky z-50 top-0 h-[100px] bg-white flex-center border-t-[5px] border-primary shadow-[0_0_4px_rgba(0,0,0,0.15)]'>
       <Container className='flex items-center justify-between'>
-        <Link href={`/`} onClick={handleSectionScroll}>
-          <Image src={logoDark} alt='喵立翰' width={235} height={59} />
-        </Link>
+        <h1>
+          <Link href={`/`} onClick={handleSectionScroll} style={logoStyle}>
+            喵立翰 Miao Li-Han
+          </Link>
+        </h1>
 
         <nav>
           <ul className='flex items-center gap-x-2 lg:gap-x-12'>
