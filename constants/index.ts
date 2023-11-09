@@ -11,3 +11,5 @@ export const DONATE_PANEL = {
   GO_DONATE: 'GO_DONATE',
   FORM: 'FORM',
 };
+
+export const FONT_SCALE = { DESKTOP: 1, MOBILE: 0.7 };

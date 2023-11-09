@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FONT_SCALE } from '@/constants/index';
 
 type WindowSize = {
   width: number;
@@ -43,9 +44,15 @@ const useWindowSize = (): WindowSize => {
   return windowSize;
 };
 
-const useIsDesktop = (): boolean => {
+const useIsDesktop = (): {
+  isDesktop: boolean;
+  scale: typeof FONT_SCALE.DESKTOP | typeof FONT_SCALE.MOBILE;
+} => {
   const { width } = useWindowSize();
-  return width >= 768;
+  return {
+    isDesktop: width >= 768,
+    scale: width >= 768 ? FONT_SCALE.DESKTOP : FONT_SCALE.MOBILE,
+  };
 };
 
 export default useIsDesktop;
