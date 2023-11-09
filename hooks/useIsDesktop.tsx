@@ -21,12 +21,15 @@ const debounce = <F extends (...args: any[]) => void>(
 };
 
 const useWindowSize = (): WindowSize => {
+  const isClient = typeof window === 'object';
+
   const [windowSize, setWindowSize] = useState<WindowSize>({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: isClient ? window.innerWidth : 0,
+    height: isClient ? window.innerHeight : 0,
   });
 
   useEffect(() => {
+    if (!isClient) return;
     const handleResize = debounce(() => {
       setWindowSize({
         width: window.innerWidth,
@@ -39,7 +42,7 @@ const useWindowSize = (): WindowSize => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [isClient]);
 
   return windowSize;
 };
@@ -48,10 +51,19 @@ const useIsDesktop = (): {
   isDesktop: boolean;
   scale: typeof FONT_SCALE.DESKTOP | typeof FONT_SCALE.MOBILE;
 } => {
+  const isClient = typeof window === 'object';
   const { width } = useWindowSize();
+
+  if (isClient) {
+    return {
+      isDesktop: width >= 768,
+      scale: width >= 768 ? FONT_SCALE.DESKTOP : FONT_SCALE.MOBILE,
+    };
+  }
+
   return {
-    isDesktop: width >= 768,
-    scale: width >= 768 ? FONT_SCALE.DESKTOP : FONT_SCALE.MOBILE,
+    isDesktop: true,
+    scale: FONT_SCALE.DESKTOP,
   };
 };
 
