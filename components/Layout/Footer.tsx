@@ -44,7 +44,7 @@ function Footer() {
             </Link>
           </div>
 
-          <div className='column-center md:flex mx-auto md:ml-auto gap-[60px]'>
+          <div className='w-full md:w-fit column-center md:flex-row md:ml-auto gap-[60px]'>
             <div className='w-[230px] '>
               <p className='text-warning body-small text-center mb-2.5'>Menu</p>
 
