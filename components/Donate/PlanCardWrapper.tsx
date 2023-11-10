@@ -16,7 +16,7 @@ function PlanCardWrapper({
   onClick,
   className = '',
 }: PlanCardWrapperProps) {
-  const classes = `bg-white w-full cursor-pointer column-center gap-2.5 p-4 border-2 ${
+  const classes = `bg-white w-full h-full cursor-pointer column-center gap-[5px] p-2.5 md:p-4 border-2 ${
     isSelected ? 'border-primary' : 'border-gray-300'
   } rounded-lg hover:bg-primary-100 transition ${className}`;
 

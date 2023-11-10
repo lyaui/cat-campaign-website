@@ -24,6 +24,14 @@ function Donate() {
     setCurrentRender(DONATE_PANEL.GO_DONATE as DonatePanel);
   };
 
+  const baseClasses =
+    'shadow-[0_0_4px_0_rgba(0, 0, 0, .1)] max-w-[679px] w-full h-[400px] md:h-[437px] rounded-[80px] column-center bg-white';
+
+  const panelClasses = {
+    [DONATE_PANEL.GO_DONATE]: 'p-[30px] md:p-[25px] gap-5',
+    [DONATE_PANEL.FORM]: 'px-[25px] md:px-16 py-5 md:py-[30px] gap-5',
+  }[currentRender];
+
   return (
     <section id={currentRouter.hash} className='bg-primary'>
       <div
@@ -34,7 +42,7 @@ function Donate() {
         data-aos='fade-up'
       >
         <Container className='flex-center md:justify-start'>
-          <div className='shadow-[0_0_4px_0_rgba(0, 0, 0, .1)] max-w-[679px] w-full h-[398px] md:h-[437px] p-8 gap-5 rounded-[80px] column-center bg-white '>
+          <div className={`${baseClasses} ${panelClasses}`}>
             {currentRender === DONATE_PANEL.GO_DONATE && (
               <GoDonatePanel onClick={handleGoDonateForm} />
             )}

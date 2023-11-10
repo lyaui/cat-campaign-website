@@ -10,6 +10,7 @@ import Button from '@/components/UI/Button';
 import Input from '@/components/UI/Input';
 import PlanCard from '@/components/Donate/PlanCard';
 import PlanCardWrapper from '@/components/Donate/PlanCardWrapper';
+import useIsDesktop from '@/hooks/useIsDesktop';
 
 export type planId = 0 | 1 | 2 | 3;
 
@@ -43,6 +44,8 @@ function DonateForm({ onClick }: DonateFormProps) {
   const [selectedPlanId, setSelectedPlanId] = useState<planId>(2);
   const inputRef = useRef<HTMLInputElement>(null);
   const [hasError, setHasError] = useState(false);
+
+  const { isDesktop, scale } = useIsDesktop();
 
   const handlePlanClick = (id: planId) => () => {
     setSelectedPlanId(id);
@@ -79,11 +82,14 @@ function DonateForm({ onClick }: DonateFormProps) {
   }, [selectedPlanId]);
 
   return (
-    <form onSubmit={handleFormSubmit} className='column-center w-full gap-5'>
-      <h4 className='heading-4 -mb-2.5'>選擇捐款方案</h4>
-      <ul className='flex gap-2.5 w-full'>
+    <form
+      onSubmit={handleFormSubmit}
+      className='column-center w-full h-[200px] gap-5'
+    >
+      <h4 className='heading-5 md:heading-4 -mb-2.5'>選擇捐款方案</h4>
+      <ul className='grid grid-cols-6 grid-rows-2 gap-2.5 w-full'>
         {plans.map((_plan) => (
-          <li key={_plan.id} className='w-full'>
+          <li key={_plan.id} className='grid-rows-1 col-span-3 md:col-span-2'>
             <PlanCard
               id={_plan.id}
               name={_plan.name}
@@ -94,36 +100,43 @@ function DonateForm({ onClick }: DonateFormProps) {
             />
           </li>
         ))}
-      </ul>
-      <PlanCardWrapper
-        id={customPlanId}
-        isSelected={selectedPlanId === customPlanId}
-        onClick={handlePlanClick}
-        className='w-auto'
-      >
-        <div className='flex-center gap-3 w-full'>
-          <label
-            htmlFor={customPlanInputId}
-            className='block shrink-0 heading-5 w-400[px]'
+        <li className='grid-rows-1 col-span-3 md:col-span-6'>
+          <PlanCardWrapper
+            id={customPlanId}
+            isSelected={selectedPlanId === customPlanId}
+            onClick={handlePlanClick}
+            className='w-auto'
           >
-            自訂捐款金額
-          </label>
-          <Input
-            id={customPlanInputId}
-            placeholder='請輸入捐款金額'
-            type='number'
-            // onChange={handleInputChange}
-            onBlur={handleInputBlur}
-            // inputRef={inputRef}
-            // error={hasError}
-          />
-        </div>
-      </PlanCardWrapper>
+            <div className='column-center md:flex-center gap-3 w-full'>
+              <label
+                htmlFor={customPlanInputId}
+                className='text-center block shrink-0 heading-6 md:heading-5'
+              >
+                自訂捐款金額
+              </label>
+              <Input
+                id={customPlanInputId}
+                placeholder='請輸入捐款金額'
+                type='number'
+                // onChange={handleInputChange}
+                onBlur={handleInputBlur}
+                // inputRef={inputRef}
+                // error={hasError}
+              />
+            </div>
+          </PlanCardWrapper>
+        </li>
+      </ul>
+
       <div className='flex-center gap-5'>
-        <Button variant='outlined' size='large' onClick={onClick}>
+        <Button
+          variant='outlined'
+          size={isDesktop ? 'large' : 'medium'}
+          onClick={onClick}
+        >
           返回
         </Button>
-        <Button size='large' type='submit'>
+        <Button size={isDesktop ? 'large' : 'medium'} type='submit'>
           我要捐款
         </Button>
       </div>

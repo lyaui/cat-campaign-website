@@ -17,7 +17,7 @@ function PlanCard({
 }: PlanCard) {
   return (
     <PlanCardWrapper id={id} isSelected={isSelected} onClick={onClick}>
-      <h5 className='heading-5'>{name}</h5>
+      <h5 className='heading-6 md:heading-5'>{name}</h5>
       <span className='text-primary text-xl font-black'>
         {`NT$${numberWithCommas(amount)}`}
       </span>
