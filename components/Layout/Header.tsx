@@ -7,6 +7,7 @@ import logoDark from '@/public/assets/logos/logo_dark.svg';
 import Button from '@/components/UI/Button';
 import Container from '@/components/Layout/Container';
 import { handleSectionScroll } from '@/utils/index';
+import coinIcon from '@/public/assets/icons/coin.svg';
 
 const NAV_ITEMS = [
   ROUTERS.ABOUT,
@@ -44,8 +45,9 @@ function NavItem({ name, hash }: NavItem) {
 const logoStyle = {
   backgroundImage: `url(${logoDark.src})`,
   backgroundRepeat: 'no-repeat',
-  width: 235,
-  height: 59,
+  backgroundSize: 'contain',
+  width: '100%',
+  height: '100%',
   display: 'block',
   textIndent: '101%',
   overflow: 'hidden',
@@ -60,16 +62,16 @@ function Header() {
   }
 
   return (
-    <header className='sticky z-50 top-0 h-[100px] bg-white flex-center border-t-[5px] border-primary shadow-[0_0_4px_rgba(0,0,0,0.15)]'>
+    <header className='sticky z-50 top-0 h-[65px] md:h-[100px] bg-white flex-center border-t-[5px] border-primary shadow-[0_0_4px_rgba(0,0,0,0.15)]'>
       <Container className='flex items-center justify-between'>
-        <h1>
+        <h1 className='w-[150px] md:w-[235px] h-[38px] md:h-[50px]'>
           <Link href={`/`} onClick={handleSectionScroll} style={logoStyle}>
             喵立翰 Miao Li-Han
           </Link>
         </h1>
 
-        <nav>
-          <ul className='flex items-center gap-x-2 lg:gap-x-12'>
+        <nav className='hidden md:block'>
+          <ul className='flex items-center gap-x-2.5 lg:gap-x-12'>
             {NAV_ITEMS.map((_route) => (
               <NavItem
                 key={_route.hash}
@@ -78,7 +80,12 @@ function Header() {
               />
             ))}
             <li>
-              <Button onClick={handleDonateClick}>小額捐款</Button>
+              <Button
+                onClick={handleDonateClick}
+                icon={<Image src={coinIcon} alt='donate' draggable={false} />}
+              >
+                小額捐款
+              </Button>
             </li>
           </ul>
         </nav>

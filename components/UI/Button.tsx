@@ -27,9 +27,10 @@ function Button({
     large: 'min-w-[176px] text-[28px] px-7 py-5',
   }[size];
 
-  const classes = `rounded-[100px] font-bold c-transition ${variantClasses} ${sizeClasses} ${className}`;
+  const classes = `flex-center gap-2 rounded-[100px] font-bold c-transition ${variantClasses} ${sizeClasses} ${className}`;
   return (
     <button className={classes} {...others}>
+      {icon || null}
       {children}
     </button>
   );

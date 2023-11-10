@@ -6,6 +6,7 @@ import donateTitle from '@/public/assets/font-svg/donate.svg';
 import accAmountTitle from '@/public/assets/font-svg/accumulated-amount.svg';
 import Button from '@/components/UI/Button';
 import useIsDesktop from '@/hooks/useIsDesktop';
+import coinIcon from '@/public/assets/icons/coin.svg';
 
 const currentRouter = ROUTERS.DONATE;
 
@@ -58,6 +59,7 @@ function GoDonatePanel({ onClick }: GoDonatePanelProps) {
         size={isDesktop ? 'large' : 'medium'}
         className='mt-5'
         onClick={onClick}
+        icon={<Image src={coinIcon} alt='donate' draggable={false} />}
       >
         前往捐款
       </Button>
