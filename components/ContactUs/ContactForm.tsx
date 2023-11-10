@@ -9,7 +9,7 @@ function ContactForm() {
     { id: 'name', placeholder: '您的建言' },
   ];
   return (
-    <form className='column-center gap-5 mt-5'>
+    <form className='column-center w-full gap-5 mt-5'>
       {inputs.map((_input) => (
         <Input key={_input.id} placeholder={_input.placeholder} />
       ))}
