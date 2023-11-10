@@ -17,27 +17,30 @@ function GoDonatePanel({ onClick }: GoDonatePanelProps) {
   const { isDesktop, scale } = useIsDesktop();
 
   const accumulatedAmount = 987655873;
-  const description = isDesktop
-    ? '您的小筆捐款，是每隻毛孩未來的大大動力！'
-    : `您的小筆捐款，\n是每隻毛孩未來的大大動力！`;
 
-  const donateTitleSize = { width: 257, height: 73 };
+  const donateTitleSize = { width: 257 * scale, height: 73 };
   const accAmountTitleSize = { width: 175, height: 56 };
 
   return (
     <>
-      <h2 className='flex-center'>
+      <h2 className='relative w-[257px] md:w-[257px] h-[56px] md:h-[73px]'>
         <Image
           src={donateTitle}
           alt={currentRouter.name}
-          width={donateTitleSize.width * scale}
-          height={donateTitleSize.height * scale}
+          style={{ objectFit: 'contain' }}
+          fill
           draggable={false}
         />
       </h2>
-      <h4 className='heading-6 md:heading-4 whitespace-pre-line text-center'>
-        {description}
-      </h4>
+      <h2 className='flex-center'></h2>
+      <>
+        <h4 className='hidden md-block md:heading-4 text-center'>
+          您的小筆捐款，是每隻毛孩未來的大大動力！
+        </h4>
+        <h4 className='md-hidden heading-6 whitespace-pre-line text-center'>
+          {`您的小筆捐款，\n是每隻毛孩未來的大大動力！`}
+        </h4>
+      </>
       <div className='column-center font-black text-primary gap-1'>
         <Image
           src={accAmountTitle}
