@@ -12,7 +12,7 @@ const NAV_RIGHT_ITEMS = [ROUTERS.ABOUT, ROUTERS.POLICY, ROUTERS.DONATE];
 function Footer() {
   const email = 'meowoffice@linmeow.tw';
   const officialInfo = [
-    { label: '地址', value: '台北市喵星區毛茸茸大道 88 號喵喵大樓 3 樓' },
+    { label: '地址', value: '喵星區毛茸茸大道 88 號喵喵大樓 3 樓' },
     { label: '電話', value: '(02) 888-5678 ' },
     {
       label: '郵件',
@@ -26,16 +26,19 @@ function Footer() {
 
   const copyright = '版權聲明：© 2023 喵立翰（Miao Li-Han） 版權所有。';
   return (
-    <footer className='bg-primary py-4'>
+    <footer className='bg-primary pt-7 pb-4'>
       <Container className='relative'>
         <div className='absolute -top-[181px] left-[80px]'>
           <Image src={catImg} alt='' width={530} height={267} />
         </div>
         <div className='flex items-center mb-5'>
-          <Link href={`/`} onClick={handleSectionScroll}>
-            <Image src={logoLight} alt='喵立翰' width={235} height={59} />
-          </Link>
-          <div className='flex ml-auto gap-[60px]'>
+          <div className='hidden md:block'>
+            <Link href={`/`} onClick={handleSectionScroll}>
+              <Image src={logoLight} alt='喵立翰' width={235} height={59} />
+            </Link>
+          </div>
+
+          <div className='column-center md:flex mx-auto md:ml-auto gap-[60px]'>
             <div className='w-[230px] '>
               <p className='text-warning body-small text-center mb-2.5'>Menu</p>
 
