@@ -28,8 +28,14 @@ function Footer() {
   return (
     <footer className='bg-primary pt-7 pb-4'>
       <Container className='relative'>
-        <div className='absolute -top-[181px] left-[80px]'>
-          <Image src={catImg} alt='' width={530} height={267} />
+        <div className='absolute -top-[146px] md:-top-[205px] left-[20px] md:left-[80px] w-[330px] md:w-[530px] h-[179px] md:h-[267px]'>
+          <Image
+            src={catImg}
+            alt=''
+            style={{ objectFit: 'contain' }}
+            fill
+            draggable={false}
+          />
         </div>
         <div className='flex items-center mb-5'>
           <div className='hidden md:block'>
