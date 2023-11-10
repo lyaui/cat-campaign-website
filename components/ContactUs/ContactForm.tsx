@@ -5,8 +5,8 @@ function ContactForm() {
   const inputs = [
     { id: 'name', placeholder: '您的姓名' },
     { id: 'email', placeholder: '您的 Email' },
-    { id: 'name', placeholder: '您的手機' },
-    { id: 'name', placeholder: '您的建言' },
+    { id: 'mobile', placeholder: '您的手機' },
+    { id: 'comment', placeholder: '您的建言' },
   ];
   return (
     <form className='column-center w-full gap-5 mt-5'>
