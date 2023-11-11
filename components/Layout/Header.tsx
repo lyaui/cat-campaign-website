@@ -16,7 +16,6 @@ const NAV_ITEMS = [
   ROUTERS.CONTACT_US,
 ];
 
-// TODO constrain type ROUTERS
 interface NavItem {
   name: string;
   hash: string;
@@ -81,7 +80,8 @@ function Header() {
             ))}
             <li>
               <Button
-                onClick={handleDonateClick}
+                href={`/#${ROUTERS.DONATE.hash}`}
+                onClick={handleSectionScroll}
                 icon={<Image src={coinIcon} alt='donate' draggable={false} />}
               >
                 小額捐款
