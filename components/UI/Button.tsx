@@ -1,4 +1,3 @@
-import Link, { type LinkProps as NextLinkProps } from 'next/link';
 import { type ReactNode, type ComponentPropsWithoutRef } from 'react';
 
 interface BaseProps {
@@ -9,21 +8,12 @@ interface BaseProps {
   className?: string;
 }
 
-type LinkProps = BaseProps &
-  NextLinkProps & {
-    href: string | { pathname: string; hash?: string };
-  };
-
 type ButtonProps = BaseProps &
   ComponentPropsWithoutRef<'button'> & {
     href?: never;
   };
 
-function isLink(props: LinkProps | ButtonProps): props is LinkProps {
-  return 'href' in props;
-}
-
-function Button(props: LinkProps | ButtonProps) {
+function Button(props: ButtonProps) {
   const {
     children,
     icon,
@@ -33,7 +23,8 @@ function Button(props: LinkProps | ButtonProps) {
     ...others
   } = props;
   const variantClasses = {
-    ghost: '',
+    ghost:
+      'text-primary hover:text-primary-300 hover:bg-primary-100 active:bg-primary-200',
     solid: 'bg-primary text-white hover:bg-primary-300 active:bg-primary-600',
     outlined:
       'text-primary hover:text-primary-300 border-[3px] hover:border-primary-300 hover:bg-primary-100 active:bg-primary-200',
@@ -46,14 +37,6 @@ function Button(props: LinkProps | ButtonProps) {
 
   const classes = `flex-center gap-2 rounded-[100px] font-bold c-transition ${variantClasses} ${sizeClasses} ${className}`;
 
-  if (isLink(props)) {
-    return (
-      <Link className={classes} {...others} scroll={false}>
-        {icon || null}
-        {children}
-      </Link>
-    );
-  }
   return (
     <button className={classes} {...others}>
       {icon || null}

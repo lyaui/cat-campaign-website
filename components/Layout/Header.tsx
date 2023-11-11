@@ -72,12 +72,13 @@ function Header() {
               />
             ))}
             <li>
-              <Button
-                href={{ pathname: '/', hash: ROUTERS.DONATE.hash }}
-                icon={<Image src={coinIcon} alt='donate' draggable={false} />}
-              >
-                小額捐款
-              </Button>
+              <Link href={{ pathname: '/', hash: ROUTERS.DONATE.hash }}>
+                <Button
+                  icon={<Image src={coinIcon} alt='donate' draggable={false} />}
+                >
+                  小額捐款
+                </Button>
+              </Link>
             </li>
           </ul>
         </nav>
