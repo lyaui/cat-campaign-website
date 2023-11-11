@@ -14,7 +14,11 @@ import zhNameImg from '@/public/assets/font-svg/name_zh_bg.svg';
 function Home() {
   const currentRouter = ROUTERS.HOME;
   return (
-    <section id={currentRouter.hash} className='pt-2 sm:pt-5 md:pt-11'>
+    <section
+      id={currentRouter.hash}
+      className='pt-2 sm:pt-5 md:pt-11'
+      data-aos='fade-up'
+    >
       <Container>
         <div className='relative w-full h-[410px] md:h-[650px]'>
           <div className='absolute top-1/2 -translate-y-1/2 flex flex-col md:gap-5'>
@@ -46,10 +50,10 @@ function Home() {
               <div className='mr-5 mt-5'>
                 <Image draggable={false} src={arrowImg} alt='' height={200} />
               </div>
-              <div className='hidden md:block'>
+              <div className='animate__animated animate__fadeInLeft hidden md:block'>
                 <Image draggable={false} src={enNameImg} alt='Miao Li-Han' />
               </div>
-              <div className='md:hidden'>
+              <div className='animate__animated animate__fadeInLeft md:hidden'>
                 <Image
                   draggable={false}
                   src={enNameMobileImg}
@@ -60,7 +64,7 @@ function Home() {
           </div>
 
           <div className='absolute top-1/2 -translate-y-[110px] sm:-translate-y-[184px] md:-translate-y-1/2 right-0 md:right-[72px]'>
-            <div className='hidden lg:block z-10'>
+            <div className='animate__animated animate__fadeInDown hidden lg:block z-10'>
               <Image
                 draggable={false}
                 src={zhNameImg}

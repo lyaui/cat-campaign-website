@@ -83,7 +83,7 @@ function DonateForm({ onClick }: DonateFormProps) {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className='column-center w-full h-[200px] gap-5'
+      className='animate__animated animate__fadeIn column-center w-full h-[200px] gap-5'
     >
       <h4 className='heading-5 md:heading-4 -mb-2.5'>選擇捐款方案</h4>
       <ul className='grid grid-cols-6 grid-rows-2 gap-2.5 w-full'>
@@ -135,7 +135,11 @@ function DonateForm({ onClick }: DonateFormProps) {
         >
           返回
         </Button>
-        <Button size={isDesktop ? 'large' : 'medium'} type='submit'>
+        <Button
+          className='shake'
+          size={isDesktop ? 'large' : 'medium'}
+          type='submit'
+        >
           我要捐款
         </Button>
       </div>

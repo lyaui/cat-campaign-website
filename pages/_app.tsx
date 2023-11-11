@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import 'animate.css';
 
 import '../styles/globals.css';
 import 'normalize.css/normalize.css';

@@ -27,7 +27,7 @@ function Footer() {
   return (
     <footer className='bg-primary pt-7 pb-4'>
       <Container className='relative'>
-        <div className='absolute -top-[146px] md:-top-[205px] left-[20px] md:left-[80px] w-[330px] md:w-[530px] h-[179px] md:h-[267px]'>
+        <div className='shake absolute -top-[146px] md:-top-[205px] left-[20px] md:left-[80px] w-[330px] md:w-[530px] h-[179px] md:h-[267px]'>
           <Image
             src={catImg}
             alt=''

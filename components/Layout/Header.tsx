@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { ROUTERS, HEADER_HEIGHT } from '@/constants/index';
 import logoDark from '@/public/assets/logos/logo_dark.svg';
@@ -76,7 +75,7 @@ function NavItems({
           <Button
             variant={buttonProps.variant}
             size={buttonProps.size}
-            className={coinDarkIcon ? '-mr-2' : ''}
+            className={`shake ${coinDarkIcon && '-mr-2'}`}
             icon={
               <Image src={buttonProps.src} alt='donate' draggable={false} />
             }

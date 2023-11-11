@@ -57,7 +57,7 @@ function GoDonatePanel({ onClick }: GoDonatePanelProps) {
       </div>
       <Button
         size={isDesktop ? 'large' : 'medium'}
-        className='mt-5'
+        className='shake mt-5'
         onClick={onClick}
         icon={<Image src={coinIcon} alt='donate' draggable={false} />}
       >
