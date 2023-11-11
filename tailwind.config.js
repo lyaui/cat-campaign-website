@@ -26,7 +26,7 @@ module.exports = {
       'title-dark': '#222',
       'primary-100': '#e8e8ff',
       'primary-200': '#ccccff',
-      'primary-300': '#3e2390',
+      'primary-300': '#5932cd',
       primary: '#4527A0',
       'primary-600': '#351e7b',
       secondary: '#26A69A',

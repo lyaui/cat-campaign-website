@@ -19,7 +19,7 @@ function Button({
   const variantClasses = {
     solid: 'bg-primary text-white hover:bg-primary-300 active:bg-primary-600',
     outlined:
-      'text-primary border-[3px] hover:bg-primary-100 active:bg-primary-200',
+      'text-primary hover:text-primary-300 border-[3px] hover:border-primary-300 hover:bg-primary-100 active:bg-primary-200',
   }[variant];
 
   const sizeClasses = {
