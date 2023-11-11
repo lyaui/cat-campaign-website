@@ -88,6 +88,16 @@ p {
   padding-bottom: 60px !important;
 }
 
+.swiper-slide {
+  opacity: 0.7;
+  transform: scale(0.95) !important;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1) !important;
+}
+
 .shake:hover {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
