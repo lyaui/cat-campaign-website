@@ -34,12 +34,12 @@ $ yarn dev
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Swiper](https://swiperjs.com/)
 - [aos](https://michalsnik.github.io/aos/)
+- [Animate.css](https://animate.style/)
 - [dayjs](https://day.js.org/)
 
 ## ✅ Todo
 
 - Swiper server side problems
-- Add `multiline` prop to `<Input/>`
 - Form validation
 - Submit success popup
 - Jumbotron Animation
