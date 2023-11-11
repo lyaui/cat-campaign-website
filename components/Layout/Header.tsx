@@ -29,21 +29,14 @@ interface NavItem {
 }
 
 function NavItem({ name, hash, isMenuOpen, onClick }: NavItem) {
-  const router = useRouter();
-  const { asPath } = router;
-  console.log(isMenuOpen);
-  const isActiveStyle = (hash: string) => {
-    const baseClasses = `${
-      isMenuOpen ? 'border-none' : 'md:border-b-[3px] border-white'
-    }  text-lg font-bold py-2 ${isMenuOpen ? 'text-white' : 'text-black'}`;
-    const activeClasses = '!border-primary';
-    return hash === asPath.replace('/', '').replace('#', '')
-      ? baseClasses + ' ' + activeClasses
-      : baseClasses;
-  };
+  const baseClasses = `${
+    isMenuOpen ? 'border-none' : 'md:border-b-[3px] border-white'
+  }  text-lg font-bold py-2 ${
+    isMenuOpen ? 'text-white' : 'text-black'
+  } hover:border-primary c-transition`;
 
   return (
-    <li key={hash} className={isActiveStyle(hash)}>
+    <li key={hash} className={baseClasses}>
       <Link href={{ pathname: '/', hash }} onClick={onClick}>
         {name}
       </Link>
