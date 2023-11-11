@@ -24,7 +24,7 @@ function GoDonatePanel({ onClick }: GoDonatePanelProps) {
 
   return (
     <>
-      <h2 className='relative w-[257px] md:w-[257px] h-[56px] md:h-[73px]'>
+      <h2 className='relative w-[200px] md:w-[257px] h-[56px] md:h-[73px]'>
         <Image
           src={donateTitle}
           alt={currentRouter.name}

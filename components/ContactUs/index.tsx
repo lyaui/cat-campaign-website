@@ -16,7 +16,7 @@ function ContactUs() {
       <Container>
         <div className='column-center md:flex-row md:items-start gap-5'>
           <div className='w-full column-center md:w-1/2'>
-            <h2 className='relative w-[300px] md:w-[500px] h-[56px] md:h-[57px] mb-5'>
+            <h2 className='relative w-[260px] md:w-[500px] h-[56px] md:h-[57px] mb-5'>
               <Image
                 src={contactUsTitle}
                 alt={currentRouter.name}

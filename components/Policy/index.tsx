@@ -48,12 +48,12 @@ function Policy() {
       data-aos='fade-up'
     >
       <Container>
-        <h2 className='flex-center mb-8'>
+        <h2 className='relative mx-auto mb-8 md:mb-10 w-[180px] md:w-[257px] h-[50px] md:h-[73px]'>
           <Image
             src={policyTitle}
             alt={currentRouter.name}
-            width={policyTitleSize.width * scale}
-            height={policyTitleSize.height * scale}
+            style={{ objectFit: 'contain' }}
+            fill
             draggable={false}
           />
         </h2>
