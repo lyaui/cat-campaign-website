@@ -1,4 +1,12 @@
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// const { Swiper, SwiperSlide } = dynamic(() => import('swiper/react'), {
+//   loading: () => <p>Loading...</p>,
+// });
 
 import { ROUTERS } from '@/constants/index';
 import campaignTitle from '@/public/assets/font-svg/campaign.svg';
@@ -7,7 +15,6 @@ import CampaignCard from '@/components/Campaign/CampaignCard';
 import campaignImg1 from '@/public/assets/images/campaign_1.png';
 import campaignImg2 from '@/public/assets/images/campaign_2.png';
 import campaignImg3 from '@/public/assets/images/campaign_3.png';
-import useIsDesktop from '@/hooks/useIsDesktop';
 
 const campaigns = [
   {
@@ -34,11 +41,9 @@ const campaigns = [
 function Campaign() {
   const currentRouter = ROUTERS.CAMPAIGN;
 
-  const { isDesktop, scale } = useIsDesktop();
-
   return (
     <section id={currentRouter.hash} className='py-11' data-aos='fade-up'>
-      <Container className='p-0'>
+      <Container className='!px-0 md:!px-5'>
         <h2 className='flex-center mb-8'>
           <Image
             src={campaignTitle}
@@ -48,12 +53,32 @@ function Campaign() {
             draggable={false}
           />
         </h2>
-        <div className='flex md:grid md:grid-cols-12 md:grid-rows-2 gap-[30px]'>
+        <div className='md:hidden'>
+          <Swiper
+            centeredSlides={true}
+            initialSlide={1}
+            spaceBetween={20}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[FreeMode, Pagination]}
+            breakpoints={{
+              320: { slidesPerView: 1.3 },
+              480: { slidesPerView: 1.8 },
+              640: { slidesPerView: 2.5 },
+            }}
+          >
+            {campaigns.map((_campaign) => (
+              <SwiperSlide key={_campaign.title}>
+                <CampaignCard {..._campaign} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        <div className='hidden md:grid md:grid-cols-12 md:grid-rows-2 gap-[30px]'>
           <div className='md:col-span-5 md:row-span-2'>
-            <CampaignCard
-              direction={isDesktop ? 'column' : 'row'}
-              {...campaigns[0]}
-            />
+            <CampaignCard direction='column' {...campaigns[0]} />
           </div>
           <div className='md:col-span-7 md:row-span-1'>
             <CampaignCard direction='row' {...campaigns[1]} />
