@@ -54,7 +54,6 @@ const useIsDesktop = (): {
 } => {
   const isClient = typeof window === 'object';
   const { width } = useWindowSize();
-  console.log({ width });
 
   if (isClient) {
     return {
