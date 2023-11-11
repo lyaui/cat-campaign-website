@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -6,12 +6,13 @@ import { useRouter } from 'next/router';
 import { ROUTERS, HEADER_HEIGHT } from '@/constants/index';
 import logoDark from '@/public/assets/logos/logo_dark.svg';
 import logoLight from '@/public/assets/logos/logo_light.svg';
-import Button from '@/components/UI/Button';
+import Button, { type BaseProps } from '@/components/UI/Button';
 import Container from '@/components/Layout/Container';
 import coinIcon from '@/public/assets/icons/coin.svg';
 import coinDarkIcon from '@/public/assets/icons/coin_dark.svg';
 import menuIcon from '@/public/assets/icons/menu.svg';
 import closeIcon from '@/public/assets/icons/close.svg';
+import useIsDesktop from '@/hooks/useIsDesktop';
 
 const NAV_ITEMS = [
   ROUTERS.ABOUT,
@@ -30,12 +31,12 @@ interface NavItem {
 function NavItem({ name, hash, isMenuOpen, onClick }: NavItem) {
   const router = useRouter();
   const { asPath } = router;
-
+  console.log(isMenuOpen);
   const isActiveStyle = (hash: string) => {
-    const baseClasses = `text-lg font-bold py-2 ${
-      isMenuOpen ? 'text-white' : 'text-black'
-    }`;
-    const activeClasses = 'border-b-[3px] border-primary';
+    const baseClasses = `${
+      isMenuOpen ? 'border-none' : 'md:border-b-[3px] border-white'
+    }  text-lg font-bold py-2 ${isMenuOpen ? 'text-white' : 'text-black'}`;
+    const activeClasses = '!border-primary';
     return hash === asPath.replace('/', '').replace('#', '')
       ? baseClasses + ' ' + activeClasses
       : baseClasses;
@@ -50,8 +51,58 @@ function NavItem({ name, hash, isMenuOpen, onClick }: NavItem) {
   );
 }
 
+function NavItems({
+  onClick,
+  isMenuOpen,
+}: {
+  onClick: () => void;
+  isMenuOpen: boolean;
+}) {
+  const buttonProps: BaseProps & { src: string } = {
+    ...(isMenuOpen
+      ? { variant: 'outlined', size: 'small', src: coinDarkIcon }
+      : { variant: 'solid', size: 'medium', src: coinIcon }),
+    children: '小額捐款',
+  };
+  return (
+    <>
+      {NAV_ITEMS.map((_route) => (
+        <NavItem
+          onClick={onClick}
+          isMenuOpen={isMenuOpen}
+          key={_route.hash}
+          name={_route.name}
+          hash={_route.hash}
+        />
+      ))}
+      <li>
+        <Link
+          href={{ pathname: '/', hash: ROUTERS.DONATE.hash }}
+          onClick={onClick}
+        >
+          <Button
+            variant={buttonProps.variant}
+            size={buttonProps.size}
+            className={coinDarkIcon ? '-mr-2' : ''}
+            icon={
+              <Image src={buttonProps.src} alt='donate' draggable={false} />
+            }
+          >
+            {buttonProps.children}
+          </Button>
+        </Link>
+      </li>
+    </>
+  );
+}
+
+const headerClasses = `fixed w-full z-50 top-0 h-[${HEADER_HEIGHT.DESKTOP}px] md:h-[${HEADER_HEIGHT.MOBILE}px] bg-white flex-center border-t-[5px] border-r-[10px] border-primary shadow-[0_0_4px_rgba(0,0,0,0.15)] c-transition`;
+
+const mHeaderClasses = '!bg-primary h-full overflow-y-hidden items-start';
+
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isDesktop } = useIsDesktop();
 
   const logoStyle = {
     backgroundImage: `url(${isMenuOpen ? logoLight.src : logoDark.src})`,
@@ -70,20 +121,21 @@ function Header() {
   }
 
   function handleMenuClose() {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(false);
   }
 
-  const baseClasses = `fixed w-full z-50 top-0 h-[${HEADER_HEIGHT.DESKTOP}px] md:h-[${HEADER_HEIGHT.MOBILE}px] bg-white flex-center border-t-[5px] border-r-[10px] border-primary shadow-[0_0_4px_rgba(0,0,0,0.15)] c-transition`;
+  useEffect(() => {
+    if (isDesktop && isMenuOpen) {
+      handleMenuToggle();
+    }
+  }, [isDesktop, isMenuOpen]);
 
-  const mobileClasses = isMenuOpen
-    ? '!bg-primary h-full overflow-y-hidden items-start'
-    : '';
   return (
-    <header className={`${baseClasses} ${mobileClasses}`}>
+    <header className={`${isMenuOpen && mHeaderClasses} ${headerClasses} `}>
       <Container
-        className={`flex items-center justify-between ${
-          isMenuOpen ? 'flex-col !items-end' : ''
-        }`}
+        className={`${
+          isMenuOpen && 'flex-col !items-end'
+        } md:flex md:items-center md:justify-between `}
       >
         <div className='flex justify-between w-full md:w-fit'>
           <h1 className='w-[150px] md:w-[235px] h-[38px] md:h-[50px]'>
@@ -96,76 +148,31 @@ function Header() {
             className='md:hidden !p-0 min-w-fit'
             onClick={handleMenuToggle}
           >
-            {isMenuOpen ? (
-              <Image src={closeIcon} alt='close' draggable={false} />
-            ) : (
-              <Image src={menuIcon} alt='menu' draggable={false} />
-            )}
+            <Image
+              src={isMenuOpen ? closeIcon : menuIcon}
+              alt={isMenuOpen ? 'close' : 'menu'}
+              draggable={false}
+            />
           </Button>
         </div>
 
-        {isMenuOpen && (
+        {isMenuOpen ? (
           <nav className='w-full md:hidden'>
             <ul
               className={`flex flex-col items-end gap-x-2.5 lg:gap-x-12 ${
                 isMenuOpen ? 'gap-y-7' : ''
               }`}
             >
-              {NAV_ITEMS.map((_route) => (
-                <NavItem
-                  onClick={handleMenuClose}
-                  isMenuOpen={isMenuOpen}
-                  key={_route.hash}
-                  name={_route.name}
-                  hash={_route.hash}
-                />
-              ))}
-              <li>
-                <Link
-                  href={{ pathname: '/', hash: ROUTERS.DONATE.hash }}
-                  onClick={handleMenuClose}
-                >
-                  <Button
-                    variant='outlined'
-                    size='small'
-                    className='-mr-2'
-                    icon={
-                      <Image
-                        src={coinDarkIcon}
-                        alt='donate'
-                        draggable={false}
-                      />
-                    }
-                  >
-                    小額捐款
-                  </Button>
-                </Link>
-              </li>
+              <NavItems isMenuOpen={isMenuOpen} onClick={handleMenuClose} />
+            </ul>
+          </nav>
+        ) : (
+          <nav className='hidden md:block'>
+            <ul className='flex items-center gap-x-2.5 lg:gap-x-12'>
+              <NavItems isMenuOpen={isMenuOpen} onClick={handleMenuClose} />
             </ul>
           </nav>
         )}
-        <nav className='hidden md:block'>
-          <ul className='flex items-center gap-x-2.5 lg:gap-x-12'>
-            {NAV_ITEMS.map((_route) => (
-              <NavItem
-                onClick={handleMenuToggle}
-                isMenuOpen={isMenuOpen}
-                key={_route.hash}
-                name={_route.name}
-                hash={_route.hash}
-              />
-            ))}
-            <li>
-              <Link href={{ pathname: '/', hash: ROUTERS.DONATE.hash }}>
-                <Button
-                  icon={<Image src={coinIcon} alt='donate' draggable={false} />}
-                >
-                  小額捐款
-                </Button>
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </Container>
     </header>
   );
