@@ -1,10 +1,10 @@
 import { type ReactNode, type ComponentPropsWithoutRef } from 'react';
 
 interface BaseProps {
-  children: string;
+  children: ReactNode;
   icon?: ReactNode;
   variant?: 'solid' | 'outlined' | 'ghost';
-  size?: 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
   className?: string;
 }
 
@@ -23,14 +23,14 @@ function Button(props: ButtonProps) {
     ...others
   } = props;
   const variantClasses = {
-    ghost:
-      'text-primary hover:text-primary-300 hover:bg-primary-100 active:bg-primary-200',
+    ghost: 'text-primary',
     solid: 'bg-primary text-white hover:bg-primary-300 active:bg-primary-600',
     outlined:
-      'text-primary hover:text-primary-300 border-[3px] hover:border-primary-300 hover:bg-primary-100 active:bg-primary-200',
+      'bg-white text-primary hover:text-primary-300 border-[3px] hover:border-primary-300 hover:bg-primary-100 active:bg-primary-200',
   }[variant];
 
   const sizeClasses = {
+    small: 'min-w-[100px] text-[20px] px-5 py-3',
     medium: 'min-w-[100px] text-[20px] px-7 py-4',
     large: 'min-w-[176px] text-[28px] px-7 py-5',
   }[size];

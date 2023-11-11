@@ -22,13 +22,18 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     AOS.refresh();
   }, []);
+  const desktopMT = ` md:mt-[98px] `;
+  const mobileMt = ` mt-[86px] `;
+
   return (
     <ParallaxProvider>
-      <main className='h-full bg-background border-x-[5px] border-primary'>
+      <div className='h-full bg-background border-x-[5px] border-primary'>
         <Header />
-        <Component {...pageProps} />
+        <main className={desktopMT + mobileMt}>
+          <Component {...pageProps} />
+        </main>
         <Footer />
-      </main>
+      </div>
     </ParallaxProvider>
   );
 }
