@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
+    "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "dayjs": "^1.11.10",
     "next": "14.0.1",
