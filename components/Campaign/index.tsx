@@ -42,7 +42,7 @@ function Campaign() {
   const currentRouter = ROUTERS.CAMPAIGN;
 
   return (
-    <section id={currentRouter.hash} className='py-11' data-aos='fade-up'>
+    <section id={currentRouter.hash} className='md:py-11' data-aos='fade-up'>
       <Container className='!px-0 md:!px-5'>
         <h2 className='relative mx-auto mb-8 md:mb-10 w-[180px] md:w-[257px] h-[50px] md:h-[73px]'>
           <Image
