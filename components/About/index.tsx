@@ -3,12 +3,9 @@ import Image from 'next/image';
 import { ROUTERS } from '@/constants/index';
 import sloganEnImg from '@/public/assets/font-svg/slogan_en.svg';
 import Container from '@/components/Layout/Container';
-import useIsDesktop from '@/hooks/useIsDesktop';
 
 function About() {
   const currentRouter = ROUTERS.ABOUT;
-
-  const { isDesktop, scale } = useIsDesktop();
   const sloganEnImgSize = { width: 56, height: 388 };
 
   return (

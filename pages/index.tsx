@@ -2,9 +2,14 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import dynamic from 'next/dynamic';
+const Campaign = dynamic(() => import('@/components/Campaign'), {
+  ssr: false,
+});
+
 import Jumbotron from '@/components/Home';
 import About from '@/components/About';
-import Campaign from '@/components/Campaign';
+// import Campaign from '@/components/Campaign';
 import Policy from '@/components/Policy';
 import Donate from '@/components/Donate';
 import ContactUs from '@/components/ContactUs';
