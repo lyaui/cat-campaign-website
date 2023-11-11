@@ -1,6 +1,6 @@
 import { type ReactNode, type ComponentPropsWithoutRef } from 'react';
 
-interface BaseProps {
+export interface BaseProps {
   children: ReactNode;
   icon?: ReactNode;
   variant?: 'solid' | 'outlined' | 'ghost';
