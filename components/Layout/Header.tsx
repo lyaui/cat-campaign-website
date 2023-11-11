@@ -53,24 +53,6 @@ const logoStyle = {
 function Header() {
   const router = useRouter();
 
-  function handleDonateClick() {
-    router.push({ pathname: `/`, hash: ROUTERS.DONATE.hash });
-  }
-
-  function test() {
-    if (typeof window === 'undefined') return;
-
-    const screenHeight = window.innerHeight;
-    const element = document.getElementById(hash);
-    if (!element) return false;
-    const rect = element.getBoundingClientRect();
-    const topPosition = rect.top;
-    const bottomPosition = rect.bottom;
-
-    // 检查元素是否在视口中可见
-    return topPosition < screenHeight && bottomPosition > 0;
-  }
-
   return (
     <header className='sticky z-50 top-0 h-[65px] md:h-[100px] bg-white flex-center border-t-[5px] border-primary shadow-[0_0_4px_rgba(0,0,0,0.15)]'>
       <Container className='flex items-center justify-between'>
