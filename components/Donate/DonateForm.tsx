@@ -75,9 +75,8 @@ function DonateForm({ onClick }: DonateFormProps) {
   };
 
   useEffect(() => {
-    console.log(selectedPlanId);
     if (selectedPlanId === customPlanId) return;
-    // setCustomDonateAmt(0);
+
     setHasError(false);
   }, [selectedPlanId]);
 

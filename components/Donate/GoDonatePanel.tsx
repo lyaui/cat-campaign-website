@@ -15,12 +15,9 @@ interface GoDonatePanelProps {
 }
 
 function GoDonatePanel({ onClick }: GoDonatePanelProps) {
-  const { isDesktop, scale } = useIsDesktop();
+  const { isDesktop } = useIsDesktop();
 
   const accumulatedAmount = 987655873;
-
-  const donateTitleSize = { width: 257 * scale, height: 73 };
-  const accAmountTitleSize = { width: 175, height: 56 };
 
   return (
     <>
@@ -43,13 +40,16 @@ function GoDonatePanel({ onClick }: GoDonatePanelProps) {
         </h4>
       </>
       <div className='column-center font-black text-primary gap-1'>
-        <Image
-          src={accAmountTitle}
-          alt='accumulate amount'
-          width={accAmountTitleSize.width * scale}
-          height={accAmountTitleSize.height * scale}
-          draggable={false}
-        />
+        <div className='relative w-[125px] md:w-[175px] h-[40px] md:h-[56px]'>
+          <Image
+            src={accAmountTitle}
+            alt={currentRouter.name}
+            style={{ objectFit: 'contain' }}
+            fill
+            draggable={false}
+          />
+        </div>
+
         <h3 className='font-black text-3xl md:text-6xl'>
           NT$
           <CountUp end={accumulatedAmount} />

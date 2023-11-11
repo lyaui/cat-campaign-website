@@ -28,8 +28,7 @@ function CampaignCard({
       alt={title}
       fill={true}
       draggable={false}
-      objectFit='cover'
-      style={{ position: 'absolute' }}
+      style={{ position: 'absolute', objectFit: 'cover' }}
     />
   );
 
