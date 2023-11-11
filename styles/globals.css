@@ -11,6 +11,8 @@ body {
   font-family: 'Noto+Sans+TC', -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
+
+  scroll-behavior: smooth;
 }
 
 /* 設定 overscroll 區域的背景顏色 */

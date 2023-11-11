@@ -24,7 +24,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <ParallaxProvider>
-      <main className='h-full bg-background border-x-[5px] border-primary'>
+      <main
+        className='h-full bg-background border-x-[5px] border-primary'
+        style={{ scrollBehavior: 'smooth' }}
+      >
         <Header />
         <Component {...pageProps} />
         <Footer />

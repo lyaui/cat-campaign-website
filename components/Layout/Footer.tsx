@@ -4,7 +4,6 @@ import { ROUTERS } from '@/constants/index';
 import logoLight from '@/public/assets/logos/logo_light.svg';
 import catImg from '@/public/assets/images/cat.png';
 import Container from '@/components/Layout/Container';
-import { handleSectionScroll } from '@/utils/index';
 
 const NAV_LEFT_ITEMS = [ROUTERS.HOME, ROUTERS.CAMPAIGN, ROUTERS.CONTACT_US];
 const NAV_RIGHT_ITEMS = [ROUTERS.ABOUT, ROUTERS.POLICY, ROUTERS.DONATE];
@@ -39,7 +38,7 @@ function Footer() {
         </div>
         <div className='flex items-center mb-5'>
           <div className='hidden md:block'>
-            <Link href={`/`} onClick={handleSectionScroll}>
+            <Link href={{ pathname: `/` }}>
               <Image src={logoLight} alt='喵立翰' width={235} height={59} />
             </Link>
           </div>
@@ -52,24 +51,14 @@ function Footer() {
                 <ul>
                   {NAV_LEFT_ITEMS.map(({ name, hash }) => (
                     <li key={name} className='text-center mb-2.5'>
-                      <Link
-                        href={`/${hash ? '#' + hash : hash}`}
-                        onClick={handleSectionScroll}
-                      >
-                        {name}
-                      </Link>
+                      <Link href={{ pathname: '/', hash }}>{name}</Link>
                     </li>
                   ))}
                 </ul>
                 <ul>
                   {NAV_RIGHT_ITEMS.map(({ name, hash }) => (
                     <li key={name} className='text-center mb-2.5'>
-                      <Link
-                        href={`/${hash ? '#' + hash : hash}`}
-                        onClick={handleSectionScroll}
-                      >
-                        {name}
-                      </Link>
+                      <Link href={{ pathname: '/', hash }}>{name}</Link>
                     </li>
                   ))}
                 </ul>

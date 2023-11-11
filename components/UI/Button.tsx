@@ -47,7 +47,7 @@ function Button(props: LinkProps | ButtonProps) {
 
   if (isLink(props)) {
     return (
-      <Link className={classes} {...others}>
+      <Link className={classes} {...others} scroll={false}>
         {icon || null}
         {children}
       </Link>
