@@ -1,9 +1,9 @@
 import { useState, type FormEvent } from 'react';
-import Modal from 'react-modal';
+import Modal, { type Styles } from 'react-modal';
 import Button from '@/components/UI/Button';
 import Input from '@/components/UI/Input';
 
-const customStyles = {
+const customStyles: Styles = {
   content: {
     position: 'absolute',
     top: '50%',
