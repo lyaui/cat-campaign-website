@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     AOS.refresh();
   }, []);
   const desktopMT = ` md:mt-[98px] `;
-  const mobileMt = ` mt-[86px] `;
+  const mobileMt = ` mt-[63px] `;
 
   return (
     <ParallaxProvider>

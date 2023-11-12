@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ROUTERS, HEADER_HEIGHT } from '@/constants/index';
+import { ROUTERS } from '@/constants/index';
 import logoDark from '@/public/assets/logos/logo_dark.svg';
 import logoLight from '@/public/assets/logos/logo_light.svg';
 import Button, { type BaseProps } from '@/components/UI/Button';
@@ -88,7 +88,7 @@ function NavItems({
   );
 }
 
-const headerClasses = `fixed w-full z-50 top-0 h-[${HEADER_HEIGHT.DESKTOP}px] md:h-[${HEADER_HEIGHT.MOBILE}px] bg-white flex-center border-t-[5px] border-r-[10px] border-primary shadow-[0_0_4px_rgba(0,0,0,0.15)] c-transition`;
+const headerClasses = `fixed w-full z-50 top-0 h-[65px] md:h-[100px] bg-white flex-center border-t-[5px] border-r-[10px] border-primary shadow-[0_0_4px_rgba(0,0,0,0.15)] c-transition`;
 
 const mHeaderClasses = '!bg-primary h-full overflow-y-hidden items-start';
 

@@ -1,8 +1,3 @@
-export const HEADER_HEIGHT = {
-  MOBILE: 65,
-  DESKTOP: 100,
-};
-
 export const ROUTERS = {
   HOME: { name: '首頁', hash: '' },
   ABOUT: { name: '候選人主張', hash: 'about' },
