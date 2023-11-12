@@ -35,13 +35,13 @@ $ yarn dev
 - [Swiper](https://swiperjs.com/)
 - [aos](https://michalsnik.github.io/aos/)
 - [Animate.css](https://animate.style/)
+- [react-modal](https://www.npmjs.com/package/react-modal)
 - [dayjs](https://day.js.org/)
 
 ## ✅ Todo
 
 - Swiper server side problems
 - Form validation
-- Submit success popup
 - Jumbotron Animation
 
 THANK YOU!
