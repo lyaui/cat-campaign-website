@@ -42,7 +42,7 @@ function CampaignCard({
   if (direction === 'row') {
     return (
       <div className='rounded-lg h-full flex overflow-hidden'>
-        <div className='relative shrink-0 w-[276px] h-auto [&>img]:hover:scale-105 [&>img]:c-transition'>
+        <div className='relative shrink-0 w-[276px] overflow-hidden h-auto [&>img]:hover:scale-105 [&>img]:c-transition'>
           {imageComp}
         </div>
         <div className='p-4 bg-white'>
